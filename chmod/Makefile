@@ -16,10 +16,10 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/chgrp
-	install -c -s -m 555 ${PROG} ${PREFIX}/sbin/chown
-	install -c -s -m 555 ${PROG} ${PREFIX}/sbin/chflags
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/chgrp
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/chown
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/chflags
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 	install -c -m 444 chgrp.1 ${MANDIR}/man1
 	install -c -m 444 chown.8 ${MANDIR}/man8

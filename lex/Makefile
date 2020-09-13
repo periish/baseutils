@@ -19,16 +19,16 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 parse.h parse.c: parse.y
-	../yacc/yacc -d parse.y
-	../mv/mv y.tab.c parse.c
-	../mv/mv y.tab.h parse.h
+	yacc -d parse.y
+	mv y.tab.c parse.c
+	mv y.tab.h parse.h
 
 install:
-	install -d -m 755 ${PREFIX}/include
-	install -c -m 444 FlexLexer.h ${PREFIX}/include
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/flex
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/flex++
+	install -d -m 755 ${PREFIX}/inc
+	install -c -m 444 FlexLexer.h ${PREFIX}/inc
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/flex
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/flex++
 	install -c -m 444 flex.1 ${MANDIR}/man1
 
 clean:

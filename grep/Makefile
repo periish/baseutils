@@ -2,9 +2,9 @@
 
 CC ?=		cc
 CFLAGS ?=	-O2 -pipe
-CFLAGS +=	-I../libopenbsd -include openbsd.h -I../libz
+CFLAGS +=	-I../libopenbsd -include openbsd.h `pkg-config --cflags zlib`
 
-LIBS =	../libz/libz.a ../libopenbsd/libopenbsd.a
+LIBS =	`pkg-config --libs zlib` ../libopenbsd/libopenbsd.a
 
 PREFIX ?=	/usr/local
 MANDIR ?=	/usr/local/share/man
@@ -16,12 +16,12 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/egrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/fgrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/zgrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/zegrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/zfgrep
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/egrep
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/fgrep
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zgrep
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zegrep
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zfgrep
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 
 clean:

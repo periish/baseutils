@@ -17,9 +17,9 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 ytab.c ytab.h: awkgram.y
-	../yacc/yacc -d awkgram.y
-	../mv/mv y.tab.c ytab.c
-	../mv/mv y.tab.h ytab.h
+	yacc -d awkgram.y
+	mv y.tab.c ytab.c
+	mv y.tab.h ytab.h
 
 proctab.c: maketab
 	./maketab >proctab.c
@@ -28,7 +28,7 @@ maketab: ytab.h maketab.c
 	${CC} ${CFLAGS} maketab.c -o maketab
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 
 clean:

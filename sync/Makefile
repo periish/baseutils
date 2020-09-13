@@ -16,7 +16,7 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
 	install -c -m 444 ${PROG}.8 ${MANDIR}/man8
 
 clean:

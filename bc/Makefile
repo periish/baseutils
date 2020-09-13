@@ -32,8 +32,8 @@ strgen:
 		"BC_ENABLED && BC_ENABLE_EXTRA_MATH" 1
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/dc
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/dc
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 	install -c -m 444 dc.1 ${MANDIR}/man1
 

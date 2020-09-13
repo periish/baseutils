@@ -18,9 +18,9 @@ all: ${OBJS}
 	${CC} ${LDFLAGS} -o ${PROG} ${OBJS} ${LIBS}
 
 install:
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/tar
-	install -c -s -m 555 ${PROG} ${PREFIX}/bin/cpio
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/tar
+	install -c -s -m 555 ${PROG} ${PREFIX}/exec/cpio
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 	install -c -m 444 tar.1 ${MANDIR}/man1
 	install -c -m 444 cpio.1 ${MANDIR}/man1
