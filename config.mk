@@ -1,6 +1,5 @@
-PREFIX ?=   /pkg/baseutils
-MANDIR ?=   /pkg/baseutils/man
-BINDIR ?=   /pkg/baseutils/exec
+PREFIX ?=   ${DESTDIR}/pkg/baseutils
+MANDIR ?=   ${DESTDIR}/pkg/baseutils/man
 
 CFLAGS ?= -pipe -O2
 
