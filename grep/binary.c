@@ -68,16 +68,16 @@ gzbin_file(gzFile *f)
 	int		m;
 	int		ret = 0;
 
-	if (gzseek(f, (z_off_t)0, SEEK_SET) == -1)
+	if (gzseek(*f, (z_off_t)0, SEEK_SET) == -1)
 		return 0;
 
-	if ((m = gzread(f, buf, BUFSIZ)) <= 0)
+	if ((m = gzread(*f, buf, BUFSIZ)) <= 0)
 		return 0;
 
 	if (isbinary(buf, m))
 		ret = 1;
 
-	if (gzrewind(f) != 0)
+	if (gzrewind(*f) != 0)
 		err(1, "gzbin_file");
 	return ret;
 }
