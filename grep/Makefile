@@ -17,11 +17,11 @@ all: ${OBJS}
 
 install:
 	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/egrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/fgrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zgrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zegrep
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/zfgrep
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/egrep
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/fgrep
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/zgrep
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/zegrep
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/zfgrep
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 
 clean:

@@ -33,7 +33,7 @@ strgen:
 
 install:
 	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/dc
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/dc
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 	install -c -m 444 dc.1 ${MANDIR}/man1
 

@@ -17,10 +17,10 @@ all: ${OBJS}
 
 install:
 	install -c -s -m 555 ${PROG} ${PREFIX}/exec/${PROG}
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/sha1
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/sha256
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/sha512
-	install -c -s -m 555 ${PROG} ${PREFIX}/exec/cksum
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/sha1
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/sha256
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/sha512
+	ln -s ${PREFIX}/exec/${PROG} ${PREFIX}/exec/cksum
 	install -c -m 444 ${PROG}.1 ${MANDIR}/man1
 	install -c -m 444 cksum.1 ${MANDIR}/man1
 
