@@ -1,6 +1,8 @@
 PREFIX ?=   ${DESTDIR}/pkg/baseutils
 MANDIR ?=   ${DESTDIR}/pkg/baseutils/man
 
+LDFLAGS =  -static
+
 CFLAGS ?= -pipe -O2
 
 UTILS =\
